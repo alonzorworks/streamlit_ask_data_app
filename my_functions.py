@@ -10,6 +10,7 @@ import sklearn
 from sklearn.linear_model import LinearRegression
 import bokeh
 import altair
+import openai
 
 # User Uploads a CSV File in the other page
 # For new functions we must run this function again to obtain a usable dataframe 
@@ -64,8 +65,8 @@ def other_inputs(list_of_questions, input_file_csv):
     query_text = st.selectbox("Select an example query:", question_list, disabled= input_file.empty)
     
     # openai_api_key = st.text_input("OpenAI API Key", type = "password", disabled = not (input_file and query_text))
-    openai_api_key = st.text_input("OpenAI API Key", type = "password", disabled = not (query_text) and input_file.empty)
-    
+    openai.api_key = st.text_input("OpenAI API Key", type = "password", disabled = not (query_text) and input_file.empty)
+    openai_api_key = openai.api_key
     # Dealing with other questions and verifying API key
     if query_text is "Other":
         # query_text = st.text_input("Enter your query", placeholder= "Enter your query...", disabled = not input_file)
