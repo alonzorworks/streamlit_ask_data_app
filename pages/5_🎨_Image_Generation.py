@@ -7,6 +7,8 @@ from io import BytesIO
 from streamlit_lottie import st_lottie
 from streamlit_folium import folium_static
 import json
+import openai
+
 
 # Page Configuration 
 st.set_page_config(
@@ -31,6 +33,7 @@ def import_json(path):
 
 st.title("Automatic Image Generation")
 
+
 col1, col2 = st.columns(2)
 
 with col1:
@@ -45,9 +48,10 @@ st.write("Artificial intelligence can be used to generate images that derive fro
 
 image_sizes = ["256x256", "512x512", "1024x1024"]
 
+global key
 key = st.text_input("Enter your API key here to enable functionality.", type = "password")
+openai.api_key = key
 openai_api_key = key
-
 
 if not key:
     #st.warning("Please enter a valid OpenAI API key to start chatting.", icon = "⚠")
@@ -71,12 +75,13 @@ query_text_custom = st.text_area("Describe your ideal image.", placeholder= "An 
 #     size = chosen_size
 # )
 
-def image_generation(prompt = query_text_custom, size = chosen_size):
+def image_generation(prompt = query_text_custom, size = chosen_size, needed_key = key):
     res = openai.Image.create(
         # Only one image will be generated to keep it simple
         prompt = prompt,
         n = 1,
-        size = size
+        size = size,
+        api_key= needed_key
     )
     
     final_image = res["data"][0]["url"]
@@ -89,8 +94,9 @@ def image_generation(prompt = query_text_custom, size = chosen_size):
 st.warning("If you see an image that you like save it immediately. Even with the same prompt you will likely not get the same image again.", icon = "⚠")
 
 if st.button("Generate Image"):
+    generated_image = image_generation()
     #image_generation()
-    generated_image = image_generation(query_text_custom, chosen_size)
+    #generated_image = image_generation(query_text_custom, chosen_size, key)
     st.image(generated_image, caption= query_text_custom, use_column_width=True)
 
 
