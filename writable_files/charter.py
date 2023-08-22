@@ -27,3 +27,11 @@ df = pd.read_csv("writable_files\dataset.csv")
 
 #Can use a downloaded file to obtain the CSV 
 
+import plotly.express as px
+
+# Group the data by gender and calculate the number of deaths
+df_deaths = df[df['Survived'] == 0].groupby('Sex').size().reset_index(name='Deaths')
+
+# Create the bar plot
+fig = px.bar(df_deaths, x='Sex', y='Deaths', color='Sex', title='Deaths by Gender')
+fig.show()

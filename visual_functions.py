@@ -74,8 +74,14 @@ def other_inputs(list_of_questions, input_file_csv):
         st.warning("Must include in prompt that you want the PLOTLY CODE IN PYTHON. Omitting this information will cause an error!", icon = "🚨")
         st.info("Enter in your custom question below. Leaving the line blank will result in the LLM interpreting your dataset's columns." ,icon = "ℹ")
         query_text_custom = st.text_area("Enter your query", placeholder= "Enter your query...", disabled = input_file.empty)
-        st.header("Output")
-        return generate_response(input_file, query_text_custom, openai_api_key)
+        # st.header("Output")
+        
+        # We want to comment the below line out in order to have the functionality called when it is ready.
+        #return generate_response(input_file, query_text_custom, openai_api_key)
+        
+        # We need to make the query_text and the custom text the same
+        
+        query_text = query_text_custom
         
     if not openai_api_key.startswith("sk-"):
         st.warning("Please enter your OpenAI API key to enable functionality!", icon = "⚠")

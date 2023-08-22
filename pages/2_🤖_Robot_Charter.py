@@ -242,8 +242,9 @@ def generate_file(code_viz, start_line):
 col1, col2, col3 = st.tabs(["Edit Code", "See Formatted Code", "Preview File"])
 
 with col1:
-    st.subheader("Type Plotly code here.")
-    code_viz = st.text_area("Enter in code. Make sure the final plot that you want to display is stored in a variable called 'fig'." )
+    st.subheader("Paste Plotly Code from GPT code here.")
+    st.warning("Need a CSV file AND a valid OpenAI key in order to function.", icon = "⚠")
+    code_viz = st.text_area("Enter in code. Make sure the final plot that you want to display is stored in a variable called 'fig'.")
     
 with col2:
     st.subheader("See formatted code")
@@ -284,7 +285,7 @@ fig2 = ch.fig
 # from writable_files import charter
 
 def plot_chart(package_library = package_library):
-    """Let's users select which Python package they want to use. Unfourtunately only plotly will be supported either because
+    """Let's users select which Python package they want to use. Unfortunately only plotly will be supported either because
     the other packages don't work. Or they do not work often enough."""
     # try:
     #     from charter import fig
