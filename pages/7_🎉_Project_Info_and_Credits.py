@@ -33,7 +33,7 @@ def import_json(path):
 st.subheader("Project Info and Credits")
 st.header("Our Partner Snowflake 🌨🧊❄")
 
-snow_bear = Image.open(r"images\snowflake_bear.png")  
+snow_bear = Image.open(r"images/snowflake_bear.png")  
 st.image(snow_bear, use_column_width=True)
     
     
@@ -46,7 +46,7 @@ st.write("")
 
 
 st.subheader("About The Project")
-project_manager = import_json(r"lottie_files\project_manager.json")
+project_manager = import_json(r"lottie_files/project_manager.json")
 st_lottie(project_manager, height = 400, key = "adv_chat")
 
 
@@ -71,7 +71,7 @@ st.write("""
 
 
 st.header("About AHEAD")
-ahead_logo = Image.open(r"images\pictures\ahead_logo.jpg")  
+ahead_logo = Image.open(r"images/pictures/ahead_logo.jpg")  
 st.image(ahead_logo, use_column_width=True)
     
 st.write("AHEAD builds platforms for digital business. By stitching together advances in Cloud, Automation, Operations, Security and DevOps, we help clients deliver on the promise of digital transformation.")

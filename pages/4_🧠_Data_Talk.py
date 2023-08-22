@@ -49,7 +49,7 @@ def import_json(path):
 
 st.title("Chat About Your Data 👨🏿‍💻🧠💻🤖")
 
-robo_chat = import_json(r"lottie_files\robo_adv_chat.json")
+robo_chat = import_json(r"lottie_files/robo_adv_chat.json")
 st_lottie(robo_chat, height = 400, key = "adv_chat")
 st.write("On this page, you can chat about your data with the help of GPT technology. This page combines the functionality of the chatbot and the main page. This page allows you to converse with the Language Learning Model enabling you to gain deeper data insights.")
 

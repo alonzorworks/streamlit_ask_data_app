@@ -31,7 +31,7 @@ def import_json(path):
     
 st.title("Private GPT Space")
 
-hi_robot = import_json(r"lottie_files\hi_robot.json")
+hi_robot = import_json(r"lottie_files/hi_robot.json")
 st_lottie(hi_robot, height= 400, key = "hey_robot")
 
 st.write("Users can use this page to ask ChatGPT general questions. This can be a viable space to use when the ChatGPT is unavailable but someone has a OpenAI key to use.")

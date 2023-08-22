@@ -34,11 +34,11 @@ st.title("Automatic Image Generation")
 col1, col2 = st.columns(2)
 
 with col1:
-    ai_brain_scan = import_json(r"lottie_files\robo_brain.json")
+    ai_brain_scan = import_json(r"lottie_files/robo_brain.json")
     st_lottie(ai_brain_scan, height = 400, key = "brain_scan")
 
 with col2:
-    pot_sculptor = import_json(r"lottie_files\pot_sculpter.json")
+    pot_sculptor = import_json(r"lottie_files/pot_sculpter.json")
     st_lottie(pot_sculptor, height = 400, key = "sculptor")
 
 st.write("Artificial intelligence can be used to generate images that derive from conventionally created art by artists. Use this page to turn your prompt into (potentially) beautiful art that you can right click and download.")

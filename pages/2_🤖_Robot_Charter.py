@@ -89,10 +89,10 @@ st.title("Robo-Visualizer Assistant 🤖📈")
 col1, col2 = st.columns(2)
 
 with col1:
-    powerful_bot = import_json(r"lottie_files\powerful_robot.json")
+    powerful_bot = import_json(r"lottie_files/powerful_robot.json")
     st_lottie(powerful_bot, height = 400, key = "power_bot")
 with col2:
-    analytics_bot = import_json(r"lottie_files\robo_analytics.json")
+    analytics_bot = import_json(r"lottie_files/robo_analytics.json")
     st_lottie(analytics_bot, height = 400, key = "analytics_bot")
 
 st.caption("In this page we use Language Learning Models to help us create visualizations.")
@@ -179,7 +179,7 @@ if input_file is not None:
     df2 = df
     
     # Will save the df file to the external folder 
-    filepath = Path("writable_files\dataset.csv")
+    filepath = Path("writable_files/dataset.csv")
     df2.to_csv(filepath, index= False)
     
     
@@ -207,7 +207,7 @@ if generator_ready is True:
 
 # def generate_file(code_viz):
 #     # file_name = "".join(random.choices(string.ascii_letters + strings.digits, k = 8))
-#     path = "writable_files\charter.py"
+#     path = "writable_files/charter.py"
 #     with open(path, "w",) as f:
         
 #         #f = open(path, "rU")
@@ -223,7 +223,7 @@ if generator_ready is True:
 # ======================================================================================================================================
 
 def generate_file(code_viz, start_line):
-    path = "writable_files\charter.py"
+    path = "writable_files/charter.py"
     with open(path, "r") as f:
         lines = f.readlines()
 

@@ -62,7 +62,7 @@ question_list = [
 
 st.title("Robo-Analytical Assistant 🤖🧮")
 
-data_oracle = import_json(r"lottie_files\robo_oracle.json")
+data_oracle = import_json(r"lottie_files/robo_oracle.json")
 st_lottie(data_oracle, height = 400, key = "oracle")
 
 st.subheader("Project Introduction")
