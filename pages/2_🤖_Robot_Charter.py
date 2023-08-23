@@ -278,9 +278,16 @@ st.info("Plotly has a lot of functionality. Familiarizing yourself with document
 package_library = "Plotly"
 
 # KEEP: Having Import Outside of the function =================================================
-from writable_files.charter import fig
-# from charter import fig
-from writable_files import charter as ch
+# Below are the old set: we are phasing these out 
+#from writable_files.charter import fig
+# from charter import fig # This line was already commented out the real two usable lines are the ones above and below
+#from writable_files import charter as ch
+
+# =============================================================================================
+
+# Need New Sets of Imports These are the local files that are in pages and NOT in writable files
+from charter import fig
+import charter as ch
     
 #fig2 = charter.fig
 fig2 = ch.fig
