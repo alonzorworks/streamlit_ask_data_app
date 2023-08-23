@@ -179,7 +179,8 @@ if input_file is not None:
     df2 = df
     
     # Will save the df file to the external folder 
-    filepath = Path(r"writable_files/dataset.csv")
+    #filepath = Path(r"writable_files/dataset.csv")
+    filepath = Path(r"dataset.csv")
     df2.to_csv(filepath, index= False)
     
     
@@ -223,7 +224,9 @@ if generator_ready is True:
 # ======================================================================================================================================
 
 def generate_file(code_viz, start_line):
-    path = r"writable_files/charter.py"
+    #path = r"writable_files/charter.py"
+    #path = r"charter.py"
+    path = r"pages/charter.py"
     with open(path, "r") as f:
         lines = f.readlines()
 
@@ -256,7 +259,9 @@ with col3:
     st.info("Big text is normal. Python comments indicated by '#' tells Markdown to make text bigger. There is no issue.", icon = "✅")
     # Test 
     # First let us see if we can read the file
-    test_path = r"writable_files/charter.py"
+    #test_path = r"writable_files/charter.py"
+    #test_path = r"charter.py" 
+    test_path = r"pages/charter.py"
     with open(test_path, "r") as file:
         file_contents = file.read()
         st.write(file_contents)
