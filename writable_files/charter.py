@@ -22,7 +22,7 @@ import sys #df = pd.read_csv(df)
 from streamlit_folium import folium_static
 import streamlit as st
 fig = ""
-df = pd.read_csv(r"writable_files\dataset.csv")
+#df = pd.read_csv(r"writable_files\dataset.csv") #df = pd.read_csv(r"writable_files\dataset.csv")  # This file is being retired. It does not need anything.
 # Need to Assign the df2 to df because that is the default dataframe that GPT deals with 
 
 #Can use a downloaded file to obtain the CSV 
