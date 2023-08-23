@@ -285,7 +285,7 @@ package_library = "Plotly"
 #from writable_files import charter as ch
 
 #from pages.charter import fig 
-from pages.charter import fig
+#from pages.charter import fig
 # =============================================================================================
 
 # Need New Sets of Imports These are the local files that are in pages and NOT in writable files
@@ -299,11 +299,13 @@ from pages.charter import fig
     
 #fig2 = charter.fig
 # fig2 = ch.fig
-fig2 = fig
-fig2
+# fig2 = fig
+# fig2
 # =================================================================
-
-
+# Newly commented 
+# from pages.charter import fig
+# fig2 = fig
+# fig2
 # from writable_files import charter
 
 # Get Figure 
@@ -312,16 +314,17 @@ fig2
 def plot_chart(package_library = package_library):
     """Let's users select which Python package they want to use. Unfortunately only plotly will be supported either because
     the other packages don't work. Or they do not work often enough."""
-    # try:
-    #     from pages.charter import fig
-    # except ImportError:
-    #     st.error("Make sure that your code has a variable of your desired graph called 'fig'.")
-    # finally:
+    try:
+        from pages.charter import fig
+    except ImportError:
+        st.error("Make sure that your code has a variable of your desired graph called 'fig'.")
+    finally:
+        pass
     
-    # #from writable_files.charter import fig
-    #     from pages.charter import fig
-        # from charter import fig
-        # from writable_files import charter as ch # writable_files is still obsolete
+    #from writable_files.charter import fig
+        from pages.charter import fig
+        from charter import fig
+        from writable_files import charter as ch # writable_files is still obsolete
     
     # fig2 = fig
     # fig = fig2
@@ -333,13 +336,14 @@ def plot_chart(package_library = package_library):
     # fig2 = fig
     # fig = fig2
     
-    st.title("This is fig")
-    st.success(fig)
+    st.title("Plotly Chart")
+    with st.expander("See Technical Chart Detail"):
+        st.success(fig)
         
     if package_library == "Plotly":
         #plotly_plot = st.plotly_chart(fig, use_container_width= True)
         #st.title("Oh yeah")
-        from pages.charter import fig 
+        
         return st.plotly_chart(fig, use_container_width= True)
     # if package_library == "Matplotlib":
     #     matlib_plot =  st.pyplot(fig, use_container_width= True)
