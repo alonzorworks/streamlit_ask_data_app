@@ -8,7 +8,7 @@ import visual_functions as mf # The file and or its path has to be changed but t
 from tempfile import NamedTemporaryFile
 import statistics
 import plotly 
-import matplotlib
+import plotly.express as px
 import matplotlib.pyplot as plt
 import sklearn
 from sklearn.linear_model import LinearRegression
@@ -21,9 +21,8 @@ import os
 import sys #df = pd.read_csv(df)
 from streamlit_folium import folium_static
 import altair_viewer
-fig = ""
-df = pd.read_csv(r"writable_files\dataset.csv")
+#fig = "I am here"
+df = pd.read_csv(r"pages/dataset.csv") #df = pd.read_csv(r"writable_files\dataset.csv")
 # Need to Assign the df2 to df because that is the default dataframe that GPT deals with 
-
 #Can use a downloaded file to obtain the CSV 
 

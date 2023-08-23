@@ -48,9 +48,9 @@ def import_json(path):
 
 
 # Here we get the system ready to take in the file where the code instructions will be written
-sys.path.insert(0, r"writable_files")
-
-
+# No more need for writable files folder 
+#sys.path.insert(0, r"writable_files")
+sys.path.insert(0, r"pages")
 
 # Original Name 
 # 2_🐼_Robo_Charter
@@ -180,7 +180,8 @@ if input_file is not None:
     
     # Will save the df file to the external folder 
     #filepath = Path(r"writable_files/dataset.csv")
-    filepath = Path(r"dataset.csv")
+    #filepath = Path(r"dataset.csv")
+    filepath = Path(r"pages/dataset.csv")
     df2.to_csv(filepath, index= False)
     
     
@@ -278,36 +279,71 @@ st.info("Plotly has a lot of functionality. Familiarizing yourself with document
 package_library = "Plotly"
 
 # KEEP: Having Import Outside of the function =================================================
-from writable_files.charter import fig
-# from charter import fig
-from writable_files import charter as ch
+# Below are the old set: we are phasing these out 
+#from writable_files.charter import fig
+# from charter import fig # This line was already commented out the real two usable lines are the ones above and below
+#from writable_files import charter as ch
+
+#from pages.charter import fig 
+#from pages.charter import fig
+# =============================================================================================
+
+# Need New Sets of Imports These are the local files that are in pages and NOT in writable files
+#import charter
+
+# Get rid of import for now
+#from pages.charter import fig
+# NEWEST TRY
+
+#import charter as ch  # This line causes an error on streamlit servers 
     
 #fig2 = charter.fig
-fig2 = ch.fig
+# fig2 = ch.fig
+# fig2 = fig
+# fig2
 # =================================================================
-
-
+# Newly commented 
+# from pages.charter import fig
+# fig2 = fig
+# fig2
 # from writable_files import charter
+
+# Get Figure 
+
 
 def plot_chart(package_library = package_library):
     """Let's users select which Python package they want to use. Unfortunately only plotly will be supported either because
     the other packages don't work. Or they do not work often enough."""
-    # try:
-    #     from charter import fig
-    # except ImportError:
-    #     st.error("Make sure that your code has a variable of your desired graph called 'fig'.")
-    # finally:
+    try:
+        from pages.charter import fig
+    except ImportError:
+        st.error("Make sure that your code has a variable of your desired graph called 'fig'.")
+    finally:
+        pass
     
     #from writable_files.charter import fig
-    # from charter import fig
-    #from writable_files import charter as ch
+        from pages.charter import fig
+        from charter import fig
+        from writable_files import charter as ch # writable_files is still obsolete
     
-    #fig2 = charter.fig
-    #fig = ch.fig
+    # fig2 = fig
+    # fig = fig2
+    
+    # +++++++++++++++++++++++++++=
+    # IMPORTANT we need to redefine fig one more time to make sure that it updates! If not we can have fig return a blank string as it did in the file
+    # from pages.charter import fig 
+    # =================================================
+    # fig2 = fig
+    # fig = fig2
+    
+    st.title("Plotly Chart")
+    with st.expander("See Technical Chart Detail"):
+        st.success(fig)
         
     if package_library == "Plotly":
         #plotly_plot = st.plotly_chart(fig, use_container_width= True)
         #st.title("Oh yeah")
+        
         return st.plotly_chart(fig, use_container_width= True)
     # if package_library == "Matplotlib":
     #     matlib_plot =  st.pyplot(fig, use_container_width= True)
