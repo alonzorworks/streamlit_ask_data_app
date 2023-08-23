@@ -288,6 +288,7 @@ package_library = "Plotly"
 # =============================================================================================
 
 # Need New Sets of Imports These are the local files that are in pages and NOT in writable files
+import charter
 from charter import fig
 #import charter as ch  # This line causes an error on streamlit servers 
     
