@@ -52,7 +52,6 @@ def import_json(path):
 #sys.path.insert(0, r"writable_files")
 
 
-
 # Original Name 
 # 2_🐼_Robo_Charter
 
@@ -288,8 +287,10 @@ package_library = "Plotly"
 # =============================================================================================
 
 # Need New Sets of Imports These are the local files that are in pages and NOT in writable files
-import charter
-from charter import fig
+#import charter
+from pages.charter import fig
+# NEWEST TRY
+
 #import charter as ch  # This line causes an error on streamlit servers 
     
 #fig2 = charter.fig
