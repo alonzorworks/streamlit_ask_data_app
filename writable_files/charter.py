@@ -22,16 +22,8 @@ import sys #df = pd.read_csv(df)
 from streamlit_folium import folium_static
 import altair_viewer
 fig = ""
-df = pd.read_csv("writable_files\dataset.csv")
+df = pd.read_csv(r"writable_files\dataset.csv")
 # Need to Assign the df2 to df because that is the default dataframe that GPT deals with 
 
 #Can use a downloaded file to obtain the CSV 
 
-import plotly.express as px
-
-# Group the data by gender and calculate the number of deaths
-df_deaths = df[df['Survived'] == 0].groupby('Sex').size().reset_index(name='Deaths')
-
-# Create the bar plot
-fig = px.bar(df_deaths, x='Sex', y='Deaths', color='Sex', title='Deaths by Gender')
-fig.show()
