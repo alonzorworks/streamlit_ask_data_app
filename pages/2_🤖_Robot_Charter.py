@@ -48,7 +48,8 @@ def import_json(path):
 
 
 # Here we get the system ready to take in the file where the code instructions will be written
-sys.path.insert(0, r"writable_files")
+# No more need for writable files folder 
+#sys.path.insert(0, r"writable_files")
 
 
 
@@ -180,7 +181,8 @@ if input_file is not None:
     
     # Will save the df file to the external folder 
     #filepath = Path(r"writable_files/dataset.csv")
-    filepath = Path(r"dataset.csv")
+    #filepath = Path(r"dataset.csv")
+    filepath = Path(r"pages\dataset.csv")
     df2.to_csv(filepath, index= False)
     
     
@@ -324,7 +326,7 @@ def plot_chart(package_library = package_library):
     #     return altair_chart
     # if package_library == "Bokeh":
     #     bokeh_chart = st.bokeh_chart(fig, use_container_width= True)
-        return bokeh_chart
+        #return bokeh_chart
     # if package_library == "Folium":
     #     folium_chart = folium_static(fig)
     #     return folium_chart
