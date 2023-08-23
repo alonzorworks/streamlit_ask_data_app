@@ -288,8 +288,9 @@ package_library = "Plotly"
 # =============================================================================================
 
 # Need New Sets of Imports These are the local files that are in pages and NOT in writable files
-from charter import fig
 import charter as ch
+from charter import fig
+#import charter as ch
     
 #fig2 = charter.fig
 fig2 = ch.fig
