@@ -22,8 +22,8 @@ df = pd.read_csv(r"pages/dataset.csv") #df = pd.read_csv(r"writable_files\datase
 #Can use a downloaded file to obtain the CSV 
 # Tries to import the uploaded file if possible, if it is possible it is overwritten
 try:
-    import a_robot_charter as arc
-    df = arc.df
+    from a_robot_charter import df2
+    df = df2
 finally:
     pass
     
