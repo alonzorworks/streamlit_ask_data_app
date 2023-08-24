@@ -28,10 +28,11 @@ import json
 from io import StringIO
 
 # Page Configuration 
-st.set_page_config(
-    page_title= "GPT Data Visualizer",
-    page_icon= "📈"
-)
+# Getting rid of page config because it causes errors
+# st.set_page_config(
+#     page_title= "GPT Data Visualizer",
+#     page_icon= "📈"
+# )
 
 
 #Image In Sidebar 
