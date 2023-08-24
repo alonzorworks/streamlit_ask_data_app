@@ -14,13 +14,14 @@ from pathlib import Path
 import os
 import sys #df = pd.read_csv(df)
 from streamlit_folium import folium_static
-from pages.z_import import df_export2
+# from pages.z_import import df_export2 # Imports the whole page does not work 
  #fig = "I am here"
 df = pd.read_csv(r"pages/dataset.csv") #df = pd.read_csv(r"writable_files\dataset.csv")
 # Need to Assign the df2 to df because that is the default dataframe that GPT deals with 
 #Can use a downloaded file to obtain the CSV  # Tries to import the uploaded file if possible, if it is possible it is overwritten
-if df_export2:
-    df = pd.read_csv(df_export2)
-else:
-    df = df = pd.read_csv(r"pages/dataset.csv")
+# The below code imports the whole page commenting it out
+# if df_export2:
+#     df = pd.read_csv(df_export2)
+# else:
+#     df = df = pd.read_csv(r"pages/dataset.csv")
     
