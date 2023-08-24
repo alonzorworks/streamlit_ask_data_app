@@ -28,10 +28,11 @@ import json
 from io import StringIO
 
 # Page Configuration 
-st.set_page_config(
-    page_title= "GPT Data Visualizer",
-    page_icon= "📈"
-)
+# Getting rid of page config because it causes errors
+# st.set_page_config(
+#     page_title= "GPT Data Visualizer",
+#     page_icon= "📈"
+# )
 
 
 #Image In Sidebar 
@@ -194,9 +195,9 @@ if input_file is not None:
     stringio = StringIO(input_file.getvalue().decode("utf-8"))
     
     
-    with st.expander("Click to see Bytes Data and String Data"):
-        st.write(bytes_data)
-        st.write(stringio)
+    # with st.expander("Click to see Bytes Data and String Data"):
+    #     st.write(bytes_data)
+    #     st.write(stringio)
     
     # To read file as string:
     string_data = stringio.read()
