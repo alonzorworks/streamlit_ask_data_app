@@ -182,7 +182,9 @@ if input_file is not None:
     #filepath = Path(r"writable_files/dataset.csv")
     #filepath = Path(r"dataset.csv")
     filepath = Path(r"pages/dataset.csv")
-    df2.to_csv(filepath, index= False)
+    
+    with open(filepath, "w", newline = ""):
+        df2.to_csv(filepath, index= False)
     
     
 

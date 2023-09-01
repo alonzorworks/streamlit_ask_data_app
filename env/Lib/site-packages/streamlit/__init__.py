@@ -166,6 +166,7 @@ table = _main.table
 text = _main.text
 text_area = _main.text_area
 text_input = _main.text_input
+toggle = _main.toggle
 time_input = _main.time_input
 title = _main.title
 vega_lite_chart = _main.vega_lite_chart
@@ -173,6 +174,7 @@ video = _main.video
 warning = _main.warning
 write = _main.write
 color_picker = _main.color_picker
+status = _main.status
 
 # Events - Note: these methods cannot be called directly on sidebar (ex: st.sidebar.toast)
 toast = event.toast
