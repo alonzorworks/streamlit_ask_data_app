@@ -51,6 +51,7 @@ st.title("Chat About Your Data 👨🏿‍💻🧠💻🤖")
 
 robo_chat = import_json(r"lottie_files/robo_adv_chat.json")
 st_lottie(robo_chat, height = 400, key = "adv_chat")
+st.warning("The LLM is good at telling you how to answer certain questions by giving you code in languages such as Python. Asking the GPT direct questions about data often causes errors.", icon = "⚠")
 st.write("On this page, you can chat about your data with the help of GPT technology. This page combines the functionality of the chatbot and the main page. This page allows you to converse with the Language Learning Model enabling you to gain deeper data insights.")
 
 # User Uploads a CSV File in the other page
