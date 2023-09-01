@@ -25,6 +25,7 @@ from PIL import Image
 from streamlit_lottie import st_lottie
 from streamlit_folium import folium_static
 import json
+import importlib
 
 # Page Configuration 
 st.set_page_config(
@@ -325,8 +326,12 @@ def plot_chart(package_library = package_library):
     
     #from writable_files.charter import fig
         from pages.charter import fig
-        from charter import fig
-        from writable_files import charter as ch # writable_files is still obsolete
+        #from charter import fig
+        #from writable_files import charter as ch # writable_files is still obsolete
+        
+        # Now we can reimport and not worry about errors 
+        importlib.reload(fig)
+        
     
     # fig2 = fig
     # fig = fig2
