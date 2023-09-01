@@ -325,12 +325,13 @@ def plot_chart(package_library = package_library):
         pass
     
     #from writable_files.charter import fig
+        import charter
         from pages.charter import fig
-        #from charter import fig
+        from charter import fig
         #from writable_files import charter as ch # writable_files is still obsolete
         
         # Now we can reimport and not worry about errors 
-        importlib.reload(fig)
+        importlib.reload(charter)
         
     
     # fig2 = fig
