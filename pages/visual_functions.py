@@ -87,7 +87,7 @@ def other_inputs(list_of_questions, input_file_csv):
         st.warning("Please enter your OpenAI API key to enable functionality!", icon = "⚠")
     if openai_api_key.startswith("sk-") and (input_file is not None):
         st.header("Output")
-        st.warning("If your output is showing an unexpected visualization. Press the three dots in the upper right hand corner and rerun the page. Once the page is refreshed then you can click the last two buttons. The write code and Make Plot Visualizations.")
+        # st.warning("If your output is showing an unexpected visualization. Press the three dots in the upper right hand corner and rerun the page. Once the page is refreshed then you can click the last two buttons. The write code and Make Plot Visualizations.")
         return generate_response(input_file, query_text, openai_api_key)
 
 

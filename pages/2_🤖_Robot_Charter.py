@@ -395,7 +395,8 @@ def plot_chart(package_library = package_library):
 # if st.button("Click to Visualize"):
 #     plot_chart(package_library)
 
-st.warning("If the visual or dataset is not updating or not working then click the three dots in the upper right corner of this page and press refresh.", icon = "🚨")
+#st.warning("If the visual or dataset is not updating or not working then click the three dots in the upper right corner of this page and press refresh.", icon = "🚨")
+st.warning("If your output is showing an unexpected visualization. Press the three dots in the upper right hand corner and rerun the page. Once the page is refreshed then you can click the last two buttons. The write code and Make Plot Visualizations.", icon = "🚨")
 
 if st.button("Make Plot Visualization"):
     plot_chart(package_library)
