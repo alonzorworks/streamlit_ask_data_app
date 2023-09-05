@@ -361,7 +361,7 @@ def plot_chart(package_library = package_library):
     #     return altair_chart
     # if package_library == "Bokeh":
     #     bokeh_chart = st.bokeh_chart(fig, use_container_width= True)
-        return bokeh_chart
+        #return bokeh_chart
     # if package_library == "Folium":
     #     folium_chart = folium_static(fig)
     #     return folium_chart
@@ -395,6 +395,7 @@ def plot_chart(package_library = package_library):
 # if st.button("Click to Visualize"):
 #     plot_chart(package_library)
 
+st.warning("If the visual or dataset is not updating or not working then click the three dots in the upper right corner of this page and press refresh.", icon = "🚨")
 
 if st.button("Make Plot Visualization"):
     plot_chart(package_library)
