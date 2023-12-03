@@ -31,14 +31,14 @@ def import_json(path):
 
 
 st.subheader("Project Info and Credits")
-st.header("Our Partner Snowflake 🌨🧊❄")
+st.header("Our Partner Finderr.com🧊")
 
 snow_bear = Image.open(r"images/snowflake_bear.png")  
 st.image(snow_bear, use_column_width=True)
     
     
-st.write("AHEAD is a proud partner of Snowflake a premier cloud data warehousing platform. This project was made possible by Snowflake's Streamlit a free Python library that enables interactive data web applications.")
-if st.button("Celebrate Snowflake"):
+st.write("Welcome to our project")
+if st.button("Celebrate Finderr.com"):
     st.snow()
 
 st.write("")
@@ -50,27 +50,24 @@ project_manager = import_json(r"lottie_files/project_manager.json")
 st_lottie(project_manager, height = 400, key = "adv_chat")
 
 
-st.write("This project was made to showcase the power of Language Learning Models and Generative Pre-Trained Transformers. ")
+import streamlit as st
 
-st.write("""
-This project can be very useful to anyone who is curious about Data Analysis. Python is considered to be one of the easiest programming languages to learn. However, many people around the world find coding to be very difficult and intimidating. Indeed, learning to code can be a daunting task. Even some skilled data analysts try to avoid coding for as long as they can.
-         
-         """)
+# Introduction
+st.write("## Project Overview")
+st.write("This project showcases the power of Language Learning Models and Generative Pre-Trained Transformers.")
 
-
-
-st.write("""
-         This project helps level the playing field. While knowing how to code is always a boon, this app enables people to gain insights into data with simply a well-phrased prompt and OpenAI API key. This app also enables users to create interactive data visualizations that are as aesthetically pleasing as they are edifying. This application also enables its users to converse with a “Robo-Analyst” who is apt to respond to further questioning in a chat-like interface.
-         
-         """)
-
-st.write("""
-         From expediting a data analyst’s workflow to enabling a non-Python user to explore its functionality, this application has something for everyone. 
-         
-         """)
+# Benefits of the Project
+st.write("## Benefits of the Project")
+st.write("This project is valuable for individuals interested in data analysis, especially those who find coding intimidating.")
+st.write("### Key Benefits:")
+st.write("- Simplifies data analysis without extensive coding knowledge.")
+st.write("- Provides insights using well-phrased prompts and the OpenAI API key.")
+st.write("- Enables users to create interactive and aesthetically pleasing data visualizations.")
+st.write("- Offers the ability to interact with a 'Robo-Analyst' in a chat-like interface.")
+st.write("- Enhances workflow for data analysts and empowers non-Python users to explore its functionality.")
 
 
-st.header("About AHEAD")
+st.header("About this app")
 ahead_logo = Image.open(r"images/pictures/ahead_logo.jpg")  
 st.image(ahead_logo, use_column_width=True)
     

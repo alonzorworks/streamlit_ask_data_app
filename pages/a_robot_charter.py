@@ -86,7 +86,7 @@ question_list = ["Other"]
 
 
 
-st.title("Robo-Visualizer Assistant 🤖📈")
+st.title("TheNextDay %change App 🤖📈")
 
 col1, col2 = st.columns(2)
 

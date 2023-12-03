@@ -12,8 +12,8 @@ from sklearn.linear_model import LinearRegression
 import bokeh
 
 
-st.title("Robo-Analytical Assistant 🤖📈")
-st.write("This project will show the power of utilizing Language Learning Models (LLMs) in jumpstarting data analytics.")
+st.title("The Nextday %Change App 🤖📈")
+st.write("This project help us predict theNextDay %Change by the power of utilizing Language Learning Models (LLMs) in jumpstarting data analytics.")
 
 # Collect CSV From User Here
 input_file = st.file_uploader("Browse for a file:")
