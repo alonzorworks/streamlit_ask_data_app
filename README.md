@@ -1,4 +1,4 @@
-# Nostradamus App - Predict The Future Together 📈🤖
+# Nostradamus App - Predict The Future Together 🧙‍♀️
 
 ## Introduction
 
