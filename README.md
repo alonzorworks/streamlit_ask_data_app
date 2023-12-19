@@ -1,4 +1,4 @@
-# Next Day %Change App 📈🤖
+# Nosterdamous.AI - Predict The Future %Change Together 📈🤖
 
 ## Introduction
 
