@@ -1,4 +1,4 @@
-# Nosterdamous.AI - Predict The Future %Change Together 📈🤖
+# Nostradamus App - Predict The Future Together 📈🤖
 
 ## Introduction
 
