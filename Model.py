@@ -5,6 +5,11 @@ import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
 from statsmodels.tsa.arima.model import ARIMA
+from tsai.models.RNN import RNN
+from tsai.data.core import TSDataset, TSDataLoaders
+from tsai.utils import accuracy
+import torch
+
 
 # Arima model
 def arima(data):
@@ -57,3 +62,52 @@ def arima(data):
     # Show the plot
     # fig.show()
     return fig
+
+
+# LSTM from tsai
+# def LSTM(data):
+#     # Separate features and target
+#     features = ["Open", "Low", "Close", "Volume"]  # Adjust feature names
+#     target_col = "High"
+
+#     # # Reshape data for time series (assuming observations are columns)
+#     # data = data.transpose()
+
+#     # Split into training and validation sets
+#     train_df, valid_df = train_test_split(data, test_size=0.2, random_state=42, shuffle=False)
+#     train_df = train_df.transpose()
+#     valid_df = valid_df.transpose()
+
+#     print(train_df.shape)
+#     print(valid_df.shape)
+
+#     # Create TSDataset objects directly from DataFrames
+#     # Create TSDataset objects from NumPy arrays
+#     train_ds = TSDataset(train_df.to_numpy())  # Convert to NumPy array
+#     valid_ds = TSDataset(valid_df.to_numpy())  # Convert to NumPy array
+#     print('yes')
+#     print(train_df.to_numpy().shape)
+#     print(valid_df.to_numpy().shape)
+#     # Define the model
+#     model = RNN(
+#         c_in=len(features),
+#         c_out=1,
+#         hidden_size=100,
+#         n_layers=2,
+#         bidirectional=True,
+#         rnn_dropout=0.5,
+#         fc_dropout=0.5
+#     )
+
+#     # Create TSDataLoaders
+#     bs = 16
+#     dls = TSDataLoaders.from_dsets(train_ds, valid_ds, bs=bs, num_workers=0, shuffle=False)
+
+#     # Select MSE loss function
+#     loss_func = nn.MSELoss()
+
+#     # Create the Learner
+#     learn = Learner(dls, model, loss_func=loss_func, metrics=accuracy)
+
+#     # Train the model
+#     learn.fit_one_cycle(1, 3e-3)  # Adjust epochs and learning rate
