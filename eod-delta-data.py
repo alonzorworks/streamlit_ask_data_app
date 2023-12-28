@@ -3,7 +3,7 @@ import requests
 from datetime import datetime, timedelta
 
 # Tiingo API token
-TIINGO_API_TOKEN = 'your_tiingo_api_token'
+TIINGO_API_TOKEN = '572ec329dc02c59f0d3ac6455cfd4b349570b540'
 
 # Load tickers
 tickers_df = pd.read_csv('eod-delta-data.csv')
