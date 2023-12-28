@@ -2,7 +2,8 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from Model import  arima
+from Arima import  arima
+from LSTM import forecast_high_low_lstm
 
 
 # Load your S&P 500 data from a CSV file (Adjust the path to your file)
@@ -47,7 +48,7 @@ def main():
     # Model selector
     model_option = st.selectbox(
         'Please Select Your Model',
-        ('LSTM', 'Prophet', 'RNN'),
+        ('LSTM', 'ARIMA'),
         key="model_option",
 
     )
@@ -71,7 +72,10 @@ def main():
         mydata = data.copy()
         mydata = mydata.set_index('Time')
         print(mydata.head())
-        fig = arima(mydata)
+        if model_option == 'LSTM':
+            fig = forecast_high_low_lstm(mydata)
+        if model_option == 'ARIMA':
+            fig = arima(mydata)
         # Show the plot in Streamlit with zooming and panning enabled
         st.plotly_chart(fig, use_container_width=True, config={'scrollZoom': True})
 
