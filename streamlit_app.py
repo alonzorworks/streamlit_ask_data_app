@@ -1,9 +1,11 @@
+import os
 import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 from Arima import  arima
 from LSTM import forecast_high_low_lstm
+from Data import getData
 
 
 # Load your S&P 500 data from a CSV file (Adjust the path to your file)
@@ -13,6 +15,13 @@ def load_data():
     # print(data.head())   # Just to have a look at data
     return data
 
+def load_csv(fpath):
+    if os.path.exists(fpath):
+        data = pd.read_csv(fpath)
+        return data
+    else:
+        print("Path doesn't exists")
+# main function
 def main():
     # set layout
     st.set_page_config(page_title="\U0001F4C8 Future Stock Price Prediction", page_icon=":chart_increasing:")
@@ -48,13 +57,19 @@ def main():
     # Model selector
     model_option = st.selectbox(
         'Please Select Your Model',
-        ('LSTM', 'ARIMA'),
+        ('ARIMA', 'LSTM'),
         key="model_option",
 
     )
-    
     # For Data selection
-    data_option = st.radio('Select the Data Type', ["NASDAQ", "S&P"], horizontal=True)
+    data_option = st.selectbox('Please Select the Asset Type',
+                               ('NASDAQ', 'NYSE', 'NYSE ARCA', 'NYSE MKT', 'NYSE NAT'))
+    
+    # get data from API
+    data = getData(data_option)
+    data = data[['close', 'high', 'low', 'open', 'volume']]
+    # print(data.head())    
+
 
     # For Week days selection
     weekdays = st.checkbox('Monday', 'Tuesday', 'Wednessday', 'Thursday', 'Friday')
@@ -70,8 +85,6 @@ def main():
     with tab1:
         st.write("Low and High Value Range")
         mydata = data.copy()
-        mydata = mydata.set_index('Time')
-        print(mydata.head())
         if model_option == 'LSTM':
             fig = forecast_high_low_lstm(mydata)
         if model_option == 'ARIMA':
@@ -87,20 +100,21 @@ def main():
     #For Tab3 content
     with tab3:
         data1 = data.copy()
+        data1 = data1.reset_index()
         # Extract day of the week from Date
-        data1['DayOfWeek'] = data1['Time'].dt.dayofweek
+        data1['DayOfWeek'] = data1['date'].dt.dayofweek
         # Calculate average close price  for each day of the week
-        day_of_week_avg_yield = data1.groupby('DayOfWeek')['Close'].mean()
+        day_of_week_avg_yield = data1.groupby('DayOfWeek')['close'].mean()
 
         # extract week of year
-        data1['WeekOfYear'] = data1['Time'].dt.isocalendar().week
+        data1['WeekOfYear'] = data1['date'].dt.isocalendar().week
         # Calculate average yield for each week of the year
-        week_of_year_avg_yield = data1.groupby('WeekOfYear')['Close'].mean()
+        week_of_year_avg_yield = data1.groupby('WeekOfYear')['close'].mean()
 
         # Extract Month of the year
-        data1['Month'] = data1['Time'].dt.month
+        data1['Month'] = data1['date'].dt.month
         # Calculate average yield for each month of the year
-        month_avg_yield = data1.groupby('Month')['Close'].mean()
+        month_avg_yield = data1.groupby('Month')['close'].mean()
 
         # Display average yield by day of the week
         st.subheader("Average Yield by Day of the Week")
@@ -115,16 +129,16 @@ def main():
         st.bar_chart(month_avg_yield)
 
         # Minimum and Maximum Yield
-        min_yield = data['Close'].min()
-        max_yield = data['Close'].max()
+        min_yield = data['close'].min()
+        max_yield = data['close'].max()
 
         st.subheader("Historical Minimum and Maximum Yield")
         st.write(f"Minimum Yield: {min_yield}")
         st.write(f"Maximum Yield: {max_yield}")
 
         # Display the DataFrame
-        st.subheader("S&P 500 Data")
-        st.write(data)
+        st.subheader(data_option)
+        st.write(mydata)
 
 
         
